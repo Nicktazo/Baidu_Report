@@ -1,7 +1,7 @@
 {
   "animateLoading": true,
   "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
-  "bottomRow": 9,
+  "bottomRow": 10,
   "boxShadow": "none",
   "buttonColor": "{{appsmith.theme.colors.primaryColor}}",
   "buttonVariant": "PRIMARY",
@@ -14,18 +14,24 @@
       "key": "borderRadius"
     }
   ],
+  "dynamicTriggerPathList": [
+    {
+      "key": "onClick"
+    }
+  ],
   "isDefaultClickDisabled": true,
   "isDisabled": false,
   "isLoading": false,
   "isVisible": true,
   "key": "0ri0f2sw2d",
-  "leftColumn": 42,
+  "leftColumn": 17,
   "minWidth": 120,
   "mobileBottomRow": 10,
   "mobileLeftColumn": 42,
   "mobileRightColumn": 58,
   "mobileTopRow": 6,
   "needsErrorInfo": false,
+  "onClick": "{{QueryOrder.run()}}",
   "parentColumnSpace": 22.203125,
   "parentId": "0",
   "parentRowSpace": 10,
@@ -34,8 +40,8 @@
   "renderMode": "CANVAS",
   "resetFormOnClick": false,
   "responsiveBehavior": "hug",
-  "rightColumn": 58,
-  "text": "Submit",
+  "rightColumn": 23,
+  "text": "查询",
   "topRow": 5,
   "type": "BUTTON_WIDGET",
   "version": 1,

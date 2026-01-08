@@ -1,0 +1,11 @@
+ SELECT
+      ID,
+      LEFT(百度单号, 8) AS 订单日期,
+      客户, 百度单号, 省, 市, 快递单号, 百度价格, 印厂, 是否有效,
+      订单状态, 成本合计, 售价合计, 计费重量, 物流成本, 物流售价,
+      包材成本, 预估重量, 物流成本_预估, 物流售价_预估
+  FROM OrderLevel
+  WHERE 客户 = '{{appsmith.user.name}}'
+    AND LEFT(百度单号, 8) BETWEEN '{{moment(StartDate.selectedDate).format("YYYYMMDD")}}'
+                              AND '{{moment(EndDate.selectedDate).format("YYYYMMDD")}}'
+  ORDER BY 百度单号
