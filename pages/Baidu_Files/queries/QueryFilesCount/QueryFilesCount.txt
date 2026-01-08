@@ -1,0 +1,7 @@
+SELECT COUNT(*) AS total
+  FROM [Baidu_EasyPrint].[dbo].[FileLevel] f
+  INNER JOIN [Baidu_EasyPrint].[dbo].[OrderLevel] o
+      ON f.[百度单号] = o.[百度单号]
+  WHERE o.[客户] = '理光'
+    AND LEFT(o.[百度单号], 8) BETWEEN '{{moment(StartDate.selectedDate).format("YYYYMMDD")}}'
+                                 AND '{{moment(EndDate.selectedDate).format("YYYYMMDD")}}'

@@ -31,7 +31,7 @@
   "mobileRightColumn": 58,
   "mobileTopRow": 6,
   "needsErrorInfo": false,
-  "onClick": "{{QueryOrder.run();\nQueryOrderCount.run();\nQueryOrderSum.run()}}",
+  "onClick": "{{QueryFiles.run();\nQueryFilesCount.run();\nQueryFilesSum.run()}}",
   "parentColumnSpace": 22.203125,
   "parentId": "0",
   "parentRowSpace": 10,

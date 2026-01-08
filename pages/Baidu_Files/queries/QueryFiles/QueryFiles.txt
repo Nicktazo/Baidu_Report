@@ -1,0 +1,36 @@
+SELECT
+      LEFT(f.[百度单号], 8) AS 订单日期,
+      f.[百度单号],
+      f.[文件ID],
+      f.[打印页数区间],
+      f.[文件总页数],
+      f.[数量],
+      f.[装订],
+      f.[宽],
+      f.[高],
+      f.[单双面],
+      f.[封面纸张],
+      f.[封面颜色],
+      f.[内页纸张],
+      f.[内页颜色],
+      f.[印厂],
+      f.[是否有效],
+      f.[订单状态],
+      f.[打印单价],
+      f.[装订单价],
+      f.[合计成本],
+      f.[状态],
+      f.[价格来源],
+      f.[打印单价_售价],
+      f.[装订单价_售价],
+      f.[售价_合计],
+      f.[预估重量]
+  FROM [Baidu_EasyPrint].[dbo].[FileLevel] f
+  INNER JOIN [Baidu_EasyPrint].[dbo].[OrderLevel] o
+      ON f.[百度单号] = o.[百度单号]
+  WHERE o.[客户] = '理光'
+    AND LEFT(o.[百度单号], 8) BETWEEN '{{moment(StartDate.selectedDate).format("YYYYMMDD")}}'
+                                 AND '{{moment(EndDate.selectedDate).format("YYYYMMDD")}}'
+  ORDER BY f.[百度单号]
+  OFFSET {{parseInt((FilesTable.pageNo - 1) * FilesTable.pageSize) || 0}} ROWS
+  FETCH NEXT {{parseInt(FilesTable.pageSize) || 10}} ROWS ONLY

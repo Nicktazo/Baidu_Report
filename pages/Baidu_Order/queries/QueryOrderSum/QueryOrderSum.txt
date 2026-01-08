@@ -1,0 +1,8 @@
+  SELECT
+      COUNT(*) AS 订单数,
+      SUM(售价合计) AS 总售价,
+      SUM(成本合计) AS 总成本
+  FROM OrderLevel
+  WHERE 客户 = '理光'
+    AND LEFT(百度单号, 8) BETWEEN '{{moment(StartDate.selectedDate).format("YYYYMMDD")}}'
+                             AND '{{moment(EndDate.selectedDate).format("YYYYMMDD")}}'

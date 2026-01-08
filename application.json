@@ -8,6 +8,10 @@
     {
       "id": "Baidu_Order",
       "isDefault": true
+    },
+    {
+      "id": "Baidu_Files",
+      "isDefault": false
     }
   ]
 }

@@ -1,7 +1,7 @@
 {
   "animateLoading": true,
   "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
-  "bottomRow": 112,
+  "bottomRow": 111,
   "dynamicBindingPathList": [
     {
       "key": "truncateButtonColor"
@@ -33,8 +33,8 @@
   "mobileRightColumn": 19,
   "mobileTopRow": 88,
   "needsErrorInfo": false,
-  "originalBottomRow": 112,
-  "originalTopRow": 108,
+  "originalBottomRow": 122,
+  "originalTopRow": 118,
   "overflow": "NONE",
   "parentColumnSpace": 22.203125,
   "parentId": "0",
@@ -43,10 +43,10 @@
   "responsiveBehavior": "fill",
   "rightColumn": 62,
   "shouldTruncate": false,
-  "text": "订单数: {{QueryOrderSum.data?.[0]?.订单数 || 0}} | 总售价: ¥{{QueryOrderSum.data?.[0]?.总售价?.toFixed(2) || '0.00'}} | 总成本: ¥{{QueryOrderSum.data?.[0]?.总成本?.toFixed(2) || '0.00'}}",
+  "text": "文件数: {{QueryFilesSum.data[0]?.fileCount ?? 0}} | 总售价: ¥{{(QueryFilesSum.data[0]?.totalPrice ?? 0).toFixed(2)}} | 总成本: ¥{{(QueryFilesSum.data[0]?.totalCost ?? 0).toFixed(2)}} | 总页数: {{QueryFilesSum.data[0]?.totalPages ?? 0}}",
   "textAlign": "LEFT",
   "textColor": "#231F20",
-  "topRow": 108,
+  "topRow": 107,
   "truncateButtonColor": "{{appsmith.theme.colors.primaryColor}}",
   "type": "TEXT_WIDGET",
   "version": 1,
