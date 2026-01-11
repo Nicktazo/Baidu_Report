@@ -1,0 +1,14 @@
+SELECT COUNT(*) AS total
+  FROM OrderLevel o
+  WHERE o.客户 = N'理光'
+    AND LEFT(o.百度单号, 8) BETWEEN '{{moment(StartDate.selectedDate).format("YYYYMMDD")}}'
+                               AND '{{moment(EndDate.selectedDate).format("YYYYMMDD")}}'
+    AND (
+        '{{ReconcileStatus.selectedOptionValue}}' = '全部'
+        OR ('{{ReconcileStatus.selectedOptionValue}}' = '百度未对账' AND o.百度对账批次 IS NULL)
+        OR ('{{ReconcileStatus.selectedOptionValue}}' = '百度已对账' AND o.百度对账批次 IS NOT NULL)
+        OR ('{{ReconcileStatus.selectedOptionValue}}' = '供应商未对账' AND o.供应商对账批次 IS NULL)
+        OR ('{{ReconcileStatus.selectedOptionValue}}' = '供应商已对账' AND o.供应商对账批次 IS NOT NULL)
+        OR ('{{ReconcileStatus.selectedOptionValue}}' = '快递未对账' AND o.快递对账批次 IS NULL)
+        OR ('{{ReconcileStatus.selectedOptionValue}}' = '快递已对账' AND o.快递对账批次 IS NOT NULL)
+    )

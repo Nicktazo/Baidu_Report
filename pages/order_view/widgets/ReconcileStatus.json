@@ -1,0 +1,59 @@
+{
+  "accentColor": "{{appsmith.theme.colors.primaryColor}}",
+  "animateLoading": true,
+  "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+  "bottomRow": 15,
+  "boxShadow": "none",
+  "defaultOptionValue": "全部",
+  "dynamicBindingPathList": [
+    {
+      "key": "accentColor"
+    },
+    {
+      "key": "borderRadius"
+    }
+  ],
+  "dynamicHeight": "FIXED",
+  "dynamicPropertyPathList": [
+    {
+      "key": "sourceData"
+    }
+  ],
+  "dynamicTriggerPathList": [],
+  "isDisabled": false,
+  "isFilterable": true,
+  "isLoading": false,
+  "isRequired": false,
+  "isVisible": true,
+  "key": "7278wua6ru",
+  "labelAlignment": "left",
+  "labelPosition": "Top",
+  "labelText": "条件",
+  "labelTextSize": "0.875rem",
+  "labelWidth": 5,
+  "leftColumn": 28,
+  "maxDynamicHeight": 9000,
+  "minDynamicHeight": 4,
+  "minWidth": 450,
+  "mobileBottomRow": 15,
+  "mobileLeftColumn": 34,
+  "mobileRightColumn": 54,
+  "mobileTopRow": 8,
+  "needsErrorInfo": false,
+  "optionLabel": "label",
+  "optionValue": "value",
+  "parentColumnSpace": 18.546875,
+  "parentId": "0",
+  "parentRowSpace": 10,
+  "placeholderText": "",
+  "renderMode": "CANVAS",
+  "responsiveBehavior": "fill",
+  "rightColumn": 39,
+  "serverSideFiltering": false,
+  "sourceData": "[\n    { \"label\": \"全部\", \"value\": \"全部\" },\n    { \"label\": \"百度未对账\", \"value\": \"百度未对账\" },\n    { \"label\": \"百度已对账\", \"value\": \"百度已对账\" },\n    { \"label\": \"供应商未对账\", \"value\": \"供应商未对账\" },\n    { \"label\": \"供应商已对账\", \"value\": \"供应商已对账\" },\n    { \"label\": \"快递未对账\", \"value\": \"快递未对账\" },\n    { \"label\": \"快递已对账\", \"value\": \"快递已对账\" }\n  ]",
+  "topRow": 8,
+  "type": "SELECT_WIDGET",
+  "version": 1,
+  "widgetId": "0girjza3kj",
+  "widgetName": "ReconcileStatus"
+}

@@ -5,7 +5,7 @@
       订单状态, 成本合计, 售价合计, 计费重量, 物流成本, 物流售价,
       包材成本, 预估重量, 物流成本_预估, 物流售价_预估
   FROM OrderLevel
-  WHERE 客户 = '贤达'
+  WHERE 客户 = '理光'
     AND LEFT(百度单号, 8) BETWEEN '{{moment(StartDate.selectedDate).format("YYYYMMDD")}}'
                              AND '{{moment(EndDate.selectedDate).format("YYYYMMDD")}}'
   ORDER BY 百度单号

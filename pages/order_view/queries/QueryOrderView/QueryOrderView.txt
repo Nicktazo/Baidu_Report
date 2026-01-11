@@ -1,0 +1,40 @@
+SELECT
+      o.ID,
+      LEFT(o.百度单号, 8) AS 订单日期,
+      o.百度单号,
+      o.快递单号,
+      o.预估重量,
+      o.物流成本_预估 AS 预估快递费,
+      o.百度价格,
+      o.成本合计 AS 供应商成本,
+      o.印厂,
+      CASE
+          WHEN EXISTS(SELECT 1 FROM FileLevel f WHERE f.百度单号 = o.百度单号 AND f.封面纸张 IS NOT NULL AND f.封面纸张 != '')
+          THEN N'有封面'
+          ELSE N'无封面'
+      END AS 封面信息,
+      (SELECT TOP 1
+          CONCAT(CAST(f.宽 AS INT), 'x', CAST(f.高 AS INT), '/', f.内页纸张, '/', f.内页颜色, '/', f.装订)
+       FROM FileLevel f WHERE f.百度单号 = o.百度单号) AS 内页信息,
+      CASE WHEN o.百度对账批次 IS NOT NULL THEN N'已对账' ELSE N'未对账' END AS 百度对账状态,
+      CASE WHEN o.供应商对账批次 IS NOT NULL THEN N'已对账' ELSE N'未对账' END AS 供应商对账状态,
+      CASE WHEN o.快递对账批次 IS NOT NULL THEN N'已对账' ELSE N'未对账' END AS 快递对账状态,
+      o.百度对账批次,
+      o.供应商对账批次,
+      o.快递对账批次
+  FROM OrderLevel o
+  WHERE o.客户 = N'理光'
+    AND LEFT(o.百度单号, 8) BETWEEN '{{moment(StartDate.selectedDate).format("YYYYMMDD")}}'
+                               AND '{{moment(EndDate.selectedDate).format("YYYYMMDD")}}'
+    AND (
+        '{{ReconcileStatus.selectedOptionValue}}' = '全部'
+        OR ('{{ReconcileStatus.selectedOptionValue}}' = '百度未对账' AND o.百度对账批次 IS NULL)
+        OR ('{{ReconcileStatus.selectedOptionValue}}' = '百度已对账' AND o.百度对账批次 IS NOT NULL)
+        OR ('{{ReconcileStatus.selectedOptionValue}}' = '供应商未对账' AND o.供应商对账批次 IS NULL)
+        OR ('{{ReconcileStatus.selectedOptionValue}}' = '供应商已对账' AND o.供应商对账批次 IS NOT NULL)
+        OR ('{{ReconcileStatus.selectedOptionValue}}' = '快递未对账' AND o.快递对账批次 IS NULL)
+        OR ('{{ReconcileStatus.selectedOptionValue}}' = '快递已对账' AND o.快递对账批次 IS NOT NULL)
+    )
+  ORDER BY o.百度单号 DESC
+  OFFSET {{(OrderTable.pageNo - 1) * OrderTable.pageSize}} ROWS
+  FETCH NEXT {{OrderTable.pageSize}} ROWS ONLY

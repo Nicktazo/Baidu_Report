@@ -1,0 +1,53 @@
+{
+  "animateLoading": true,
+  "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+  "bottomRow": 108,
+  "dynamicBindingPathList": [
+    {
+      "key": "truncateButtonColor"
+    },
+    {
+      "key": "fontFamily"
+    },
+    {
+      "key": "borderRadius"
+    },
+    {
+      "key": "text"
+    }
+  ],
+  "dynamicHeight": "AUTO_HEIGHT",
+  "dynamicTriggerPathList": [],
+  "fontFamily": "{{appsmith.theme.fontFamily.appFont}}",
+  "fontSize": "1rem",
+  "fontStyle": "BOLD",
+  "isLoading": false,
+  "isVisible": true,
+  "key": "jx510c9s6c",
+  "leftColumn": 3,
+  "maxDynamicHeight": 9000,
+  "minDynamicHeight": 4,
+  "minWidth": 450,
+  "mobileBottomRow": 106,
+  "mobileLeftColumn": 0,
+  "mobileRightColumn": 4,
+  "mobileTopRow": 102,
+  "needsErrorInfo": false,
+  "overflow": "NONE",
+  "parentColumnSpace": 24.203125,
+  "parentId": "0",
+  "parentRowSpace": 10,
+  "renderMode": "CANVAS",
+  "responsiveBehavior": "fill",
+  "rightColumn": 61,
+  "shouldTruncate": false,
+  "text": "订单数: {{QueryOrderViewSum.data?.[0]?.orderCount ?? 0}} | 百度价格: ¥{{(QueryOrderViewSum.data?.[0]?.totalBaiduPrice ?? 0).toFixed(2)}} | 供应商成本: ¥{{(QueryOrderViewSum.data?.[0]?.totalCost ?? 0).toFixed(2)}}",
+  "textAlign": "LEFT",
+  "textColor": "#231F20",
+  "topRow": 104,
+  "truncateButtonColor": "{{appsmith.theme.colors.primaryColor}}",
+  "type": "TEXT_WIDGET",
+  "version": 1,
+  "widgetId": "ym89qoqq08",
+  "widgetName": "SummaryText"
+}

@@ -1,0 +1,2 @@
+INSERT INTO ReconciliationBatch (批次号, 类型, 订单数, 总金额)
+  VALUES ('{{this.params.batchNo}}', '{{this.params.type}}', {{this.params.count}}, {{this.params.total}})

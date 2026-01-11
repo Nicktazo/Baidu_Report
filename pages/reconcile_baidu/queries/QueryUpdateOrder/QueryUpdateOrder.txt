@@ -1,0 +1,8 @@
+UPDATE OrderLevel
+  SET
+      百度商品采购金额 = {{this.params.productAmount}},
+      百度物流采购金额 = {{this.params.logisticsAmount}},
+      百度订单状态 = N'{{this.params.orderStatus}}',
+      百度是否退款 = N'{{this.params.isRefund}}',
+      百度对账批次 = '{{this.params.batchNo}}'
+  WHERE 百度单号 = '{{this.params.orderNo}}'
